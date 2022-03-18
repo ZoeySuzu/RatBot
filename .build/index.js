@@ -29,12 +29,13 @@ app.listen(() => {
   console.log("Server started");
 });
 client.commands = new Collection();
-const commandFiles = fs.readdirSync("./commands").filter((file) => file.endsWith(".js"));
+const commands = [];
+const commandFiles = fs.readdirSync("./commands").filter((file) => file.endsWith(".ts"));
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
+  const command = require(`./commands/${file}`.replace(".ts", ".js"));
   client.commands.set(command.data.name, command);
+  commands.push(command.data.toJSON());
 }
-console.log(client.commands);
 const clientID = "954409833203916860";
 const serverIDs = ["692837882343325770", "279615532863324160"];
 const rest = new REST({ version: "9" }).setToken(token);
@@ -43,7 +44,7 @@ const rest = new REST({ version: "9" }).setToken(token);
     try {
       console.log("Started refreshing " + guildID + " (/) commands.");
       await rest.put(Routes.applicationGuildCommands(clientID, guildID), {
-        body: client.commands
+        body: commands
       });
       console.log("Successfully reloaded " + guildID + " (/) commands.");
     } catch (error) {

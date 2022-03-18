@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["../../commands/ping.js"],
-  "sourcesContent": ["const {SlashCommandBuilder} = require('@discordjs/builders');\n\n\nmodule.exports = {\n  data: new SlashCommandBuilder()\n    .setName('ping')\n    .setDescription('Replies with Pong!'),\n  async execute(interaction) {\n    await interaction.reply('Pong!');\n  },\n};"],
-  "mappings": "AAAA,MAAM,EAAC,wBAAuB,QAAQ;AAGtC,OAAO,UAAU;AAAA,EACf,MAAM,IAAI,sBACP,QAAQ,QACR,eAAe;AAAA,QACZ,QAAQ,aAAa;AACzB,UAAM,YAAY,MAAM;AAAA;AAAA;",
+  "sources": ["../../commands/ping.ts"],
+  "sourcesContent": ["const {SlashCommandBuilder} = require('@discordjs/builders');\n\n\nmodule.exports = {\n  data: new SlashCommandBuilder()\n    .setName('ping')\n    .setDescription('Replies with Pong!'),\n  \n  async execute(interaction) {\n    await interaction.reply('Pong!');\n  },\n};"],
+  "mappings": "AAAA,MAAM,EAAC,wBAAuB,QAAQ;AAGtC,OAAO,UAAU;AAAA,EACf,MAAM,IAAI,sBACP,QAAQ,QACR,eAAe;AAAA,QAEZ,QAAQ,aAAa;AACzB,UAAM,YAAY,MAAM;AAAA;AAAA;",
   "names": []
 }

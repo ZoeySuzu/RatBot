@@ -16,13 +16,15 @@ app.listen(() => {
 });
 
 client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commands = [];
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.ts'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
+  //The file is changed at compile time so we account for the future
+	const command = require(`./commands/${file}`.replace('.ts','.js')); 
 	client.commands.set(command.data.name, command);
+  commands.push(command.data.toJSON());
 }
-console.log(client.commands);
 
 const clientID = "954409833203916860";
 const serverIDs: string[] = ["692837882343325770","279615532863324160"];
@@ -38,7 +40,7 @@ const rest = new REST({ version: '9' }).setToken(token);
   		await rest.put(
   			Routes.applicationGuildCommands(clientID, guildID),
   			{ 
-          body: client.commands
+          body: commands
         },
   		);
   
