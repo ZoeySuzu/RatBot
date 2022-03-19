@@ -11,9 +11,11 @@ const token =  process.env['Discord_Token'];
 
 //Start bot server
 const app = express();
-app.listen(() => {
-  console.log('Server started');
-});
+app.get('/', (req, res) => {
+  res.send('hello world')
+})
+
+app.listen(3000)
 
 client.commands = new Collection();
 const commands = [];

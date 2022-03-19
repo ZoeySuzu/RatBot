@@ -25,9 +25,10 @@ const { Client, Collection, Intents } = require("discord.js");
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const token = process.env["Discord_Token"];
 const app = (0, import_express.default)();
-app.listen(() => {
-  console.log("Server started");
+app.get("/", (req, res) => {
+  res.send("hello world");
 });
+app.listen(3e3);
 client.commands = new Collection();
 const commands = [];
 const commandFiles = fs.readdirSync("./commands").filter((file) => file.endsWith(".ts"));
