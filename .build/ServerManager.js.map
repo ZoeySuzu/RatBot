@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../ServerManager.ts"],
+  "sourcesContent": ["/**\n*  ZS 19/03/22\n*  This function will create a replit server that is constantly pinged by \n*  uptimeRobot, as otherwise the bot would stop running after an hour. \n*  Although may not be necessary.\n**/\nimport express from 'express';\n\nexport function InitiateServer(){\n  //Start bot server\n  const app = express();\n  app.get('/', (req, res) => {\n    res.send('hello world')\n  })\n\n  app.listen(3000)\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAMA,qBAAoB;AAEb,0BAAyB;AAE9B,QAAM,MAAM;AACZ,MAAI,IAAI,KAAK,CAAC,KAAK,QAAQ;AACzB,QAAI,KAAK;AAAA;AAGX,MAAI,OAAO;AAAA;",
+  "names": []
+}

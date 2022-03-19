@@ -5,4 +5,4 @@ module.exports = {
     await interaction.reply("Pong!");
   }
 };
-//# sourceMappingURL=ping.js.map
+//# sourceMappingURL=_examplePing.js.map

@@ -1,5 +1,9 @@
-const {SlashCommandBuilder} = require('@discordjs/builders');
+/**
+*  ZS 19/03/22
+*  Example class for a simple discord slash command.
+**/
 
+const {SlashCommandBuilder} = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
